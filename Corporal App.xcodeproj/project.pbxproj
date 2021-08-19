@@ -15,6 +15,9 @@
 		B207A25826BDD699005A2B4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B207A25626BDD699005A2B4E /* LaunchScreen.storyboard */; };
 		B207A26226C86690005A2B4E /* corporal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207A26126C86690005A2B4E /* corporal.swift */; };
 		B207A26B26CA4215005A2B4E /* todayScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207A26A26CA4215005A2B4E /* todayScreenTableViewController.swift */; };
+		B207A27326CA50C7005A2B4E /* TimeEventCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207A27226CA50C7005A2B4E /* TimeEventCustomCell.swift */; };
+		B207A27626CD78BD005A2B4E /* TodayScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207A27526CD78BD005A2B4E /* TodayScreenController.swift */; };
+		B207A27926CD7971005A2B4E /* TodayTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207A27826CD7971005A2B4E /* TodayTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		B207A25926BDD699005A2B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B207A26126C86690005A2B4E /* corporal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corporal.swift; sourceTree = "<group>"; };
 		B207A26A26CA4215005A2B4E /* todayScreenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = todayScreenTableViewController.swift; sourceTree = "<group>"; };
+		B207A27226CA50C7005A2B4E /* TimeEventCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEventCustomCell.swift; sourceTree = "<group>"; };
+		B207A27526CD78BD005A2B4E /* TodayScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScreenController.swift; sourceTree = "<group>"; };
+		B207A27826CD7971005A2B4E /* TodayTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +69,11 @@
 				B207A26026C8665F005A2B4E /* additional files */,
 				B207A24F26BDD698005A2B4E /* ViewController.swift */,
 				B207A26A26CA4215005A2B4E /* todayScreenTableViewController.swift */,
+				B207A27226CA50C7005A2B4E /* TimeEventCustomCell.swift */,
 				B207A25126BDD698005A2B4E /* Main.storyboard */,
 				B207A25926BDD699005A2B4E /* Info.plist */,
+				B207A27526CD78BD005A2B4E /* TodayScreenController.swift */,
+				B207A27826CD7971005A2B4E /* TodayTableView.swift */,
 				B207A26126C86690005A2B4E /* corporal.swift */,
 			);
 			path = "Corporal App";
@@ -154,7 +163,10 @@
 				B207A25026BDD698005A2B4E /* ViewController.swift in Sources */,
 				B207A24C26BDD698005A2B4E /* AppDelegate.swift in Sources */,
 				B207A24E26BDD698005A2B4E /* SceneDelegate.swift in Sources */,
+				B207A27926CD7971005A2B4E /* TodayTableView.swift in Sources */,
 				B207A26B26CA4215005A2B4E /* todayScreenTableViewController.swift in Sources */,
+				B207A27326CA50C7005A2B4E /* TimeEventCustomCell.swift in Sources */,
+				B207A27626CD78BD005A2B4E /* TodayScreenController.swift in Sources */,
 				B207A26226C86690005A2B4E /* corporal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
