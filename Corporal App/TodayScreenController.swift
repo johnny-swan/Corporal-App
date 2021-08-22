@@ -9,7 +9,7 @@ import UIKit
 
 class TodayScreenController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
-    let model = Corporal_App.defaultTimeTable
+    let model = Corporal_App.timeTables[0]
 
     @IBOutlet weak var clockLabel: UILabel!
     
@@ -19,13 +19,13 @@ class TodayScreenController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        clockLabel.text = model.Caption
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = model.count
+        let count = model.TTItems.count
         print("Model items count:"+String(count))
-        return model.count
+        return count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,12 +33,16 @@ class TodayScreenController: UIViewController, UITableViewDataSource, UITableVie
         let cell = todayTable.dequeueReusableCell(withIdentifier: "TimeEventCell", for: indexPath) as! TimeEventCustomCell
 
 //         Configure the cell...
-        let timeTableItem = model[indexPath.row]
+        let timeTableItem = model.TTItems[indexPath.row]
         cell.titleLabel?.text = timeTableItem.title
-        let timeString = String(timeTableItem.beginTime.hours!)+":"+String(timeTableItem.beginTime.minutes!)
 
-        cell.timeStartLabel?.text = timeString
-        cell.timeEndLabel?.text = "00:00"
+        cell.timeStartLabel?.text = String(describing:  timeTableItem.beginTime)
+        if timeTableItem.endTime != nil {
+            cell.timeEndLabel?.text = String(describing: timeTableItem.endTime!)
+            
+        } else {
+            cell.timeEndLabel?.isHidden = true
+        }
 
         return cell
     }
