@@ -23,9 +23,7 @@ class TodayScreenController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = model.TTItems.count
-        print("Model items count:"+String(count))
-        return count
+        return model.TTItems.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
