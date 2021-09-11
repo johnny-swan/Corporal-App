@@ -8,22 +8,21 @@
 import UIKit
 
 class EditTimeTableScreenControllerTableViewController: UITableViewController {
+    
     func checkDelegate() {
-        print("DELEGATE WORKS")
+        // this delegate should prepare data before upper view will be dismissed
         self.tableView.reloadData()
         
     }
-    var currentTimeTable = TimeTable(TTItems: [], Caption: "New Time Table")
+    var currentTimeTable: TimeTable?
     var currentTimeTableIndex: Int?
+    var previousView: UIViewController?
 
     @IBOutlet weak var timeTableCaption: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
-        timeTableCaption.text = currentTimeTable.Caption
-        
-        
+        timeTableCaption.text = currentTimeTable!.Caption
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,7 +32,7 @@ class EditTimeTableScreenControllerTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("View will appear")
+        print("edit time table view will appear")
     }
 
     // MARK: - Table view data source
@@ -48,7 +47,11 @@ class EditTimeTableScreenControllerTableViewController: UITableViewController {
         switch section {
         case 0:
 //            return currentTimeTable.TTItems.count
-            return timeTables[currentTimeTableIndex!].TTItems.count
+            if currentTimeTableIndex != nil {
+                return timeTables[currentTimeTableIndex!].TTItems.count
+            } else {
+                return 0
+            }
         default:
             return 1
         }
@@ -80,10 +83,19 @@ class EditTimeTableScreenControllerTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newItemSegue" {
             if let dest = segue.destination as? NewItemPopupController {
-                dest.currentTimeTableIndex = 0
+                dest.currentTimeTableIndex = currentTimeTableIndex
                 dest.previousView = self
             }
         }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        // update time table name
+        timeTables[currentTimeTableIndex!].Caption = timeTableCaption.text!
+        
+        // ask previous view to update table
+        let lastView = previousView! as! TimeTablesScreenController
+        lastView.checkDelegate()
+        
     }
 
     /*

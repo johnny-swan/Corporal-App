@@ -9,21 +9,37 @@ import UIKit
 
 class TodayScreenController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
-    let model = Corporal_App.timeTables[0]
+//    let model = Corporal_App.timeTables[0]
+    let currentIndex = 0
 
     @IBOutlet weak var clockLabel: UILabel!
     
     @IBOutlet weak var todayTable: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.todayTable.reloadData()
+        print("here I expect data to be reloaded")
+    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        self.todayTable.reloadData()
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        clockLabel.text = model.Caption
+        clockLabel.text = timeTables[currentIndex].Caption
+        
     }
     
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.TTItems.count
+        print("Going to recalculate model")
+        print("Items count = " + String(timeTables[currentIndex].TTItems.count))
+        return timeTables[currentIndex].TTItems.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,7 +47,7 @@ class TodayScreenController: UIViewController, UITableViewDataSource, UITableVie
         let cell = todayTable.dequeueReusableCell(withIdentifier: "TimeEventCell", for: indexPath) as! TimeEventCustomCell
 
 //         Configure the cell...
-        let timeTableItem = model.TTItems[indexPath.row]
+        let timeTableItem = timeTables[currentIndex].TTItems[indexPath.row]
         cell.titleLabel?.text = timeTableItem.title
 
         cell.timeStartLabel?.text = String(describing:  timeTableItem.beginTime)

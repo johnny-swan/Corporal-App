@@ -9,8 +9,14 @@ import UIKit
 
 class TimeTablesScreenController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+
     @IBOutlet weak var timeTablesTable: UITableView!
     
+    func checkDelegate() {
+        // this delegate should prepare data before upper view will be dismissed
+        self.timeTablesTable.reloadData()
+    }
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Corporal_App.timeTables.count
     }
@@ -18,17 +24,16 @@ class TimeTablesScreenController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = timeTablesTable.dequeueReusableCell(withIdentifier: "timeTablesItemsCell", for: indexPath)
         
-        cell.textLabel?.text = Corporal_App.timeTables[indexPath.row].Caption
+        cell.textLabel?.text = timeTables[indexPath.row].Caption
         return cell
         
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        timeTablesTable.reloadData()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "editTTSegue":
@@ -38,8 +43,17 @@ class TimeTablesScreenController: UIViewController, UITableViewDelegate, UITable
 
             dest.currentTimeTable = Corporal_App.timeTables[index!]
             dest.currentTimeTableIndex = index!
+            dest.previousView = self
         case "newTTSegue":
             print("New")
+            // create new time table in model
+            let newTT = TimeTable(TTItems: [], Caption: "new Time Table")
+            timeTables.append(newTT)
+            let dest = segue.destination as! EditTimeTableScreenControllerTableViewController
+            dest.currentTimeTable = timeTables.last!
+            dest.currentTimeTableIndex = timeTables.count-1
+            dest.previousView = self
+            
         default:
             print("Nothing")
         

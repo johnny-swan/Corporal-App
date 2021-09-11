@@ -33,6 +33,16 @@ struct TimeTableItem {
     var beginTime: TimeStamp
     var endTime: TimeStamp?
     var title: String?
+    
+    var description: String {
+        var descString = ""
+        descString += String(describing: beginTime)
+        descString.append(", ")
+        descString += String(describing: endTime)
+        descString.append(": ")
+        descString.append(title!)
+        return descString
+    }
 }
 
 struct TimeTable {

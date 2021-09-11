@@ -7,34 +7,52 @@
 
 import UIKit
 
-class NewItemPopupController: UIViewController {
+class NewItemPopupController: UIViewController, UITextFieldDelegate {
     
     var currentTimeTableIndex: Int?
     var previousView: UIViewController?
-
+    @IBOutlet weak var ttEventName: UITextField!
+    
     @IBAction func donePressed(_ sender: Any) {
-        print("Should dismiss")
-        let newTTItem = TimeTableItem(beginTime: TimeStamp(hours: 11, minutes: 12), endTime: TimeStamp(hours: 11, minutes: 15), title: "NEW!!")
+        // text would be caption for created event
+        let text = ttEventName.text != "" ? ttEventName.text : "New Event"
+        // create new timetable event
+        let newTTItem = TimeTableItem(beginTime: TimeStamp(hours: 11, minutes: 12),
+                                      endTime: TimeStamp(hours: 11, minutes: 15),
+                                      title: text)
+        // add event to model
+        //TODO: write OOP-style model for this app
         Corporal_App.timeTables[currentTimeTableIndex!].TTItems.append(newTTItem)
-        print(Corporal_App.timeTables[currentTimeTableIndex!])
-//        if previousView is EditTimeTableScreenControllerTableViewController{
-//            print("it is")
-//            previousView.tableView.reloadData()
-//        }
+        
         let lastView = previousView as! EditTimeTableScreenControllerTableViewController
-//        lastView.reloadData()
         lastView.checkDelegate()
         self.dismiss(animated: true)
-
-        
-        
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.endEditing(true)
+        
+        // tap gesture recognizer is used to dismiss the keyboard by tapping elsewhere
+        let tap = UITapGestureRecognizer(target: self,
+                                         action: #selector(self.tapEverywhere(_:)))
+    
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapEverywhere(_ gesture: UITapGestureRecognizer) {
+        // this funciton called when user tapped on blank space in view
+        print("tapped")
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("Return pressed")
+        self.view.endEditing(true)
+        return true
+    }
+    
+
 
     /*
     // MARK: - Navigation
