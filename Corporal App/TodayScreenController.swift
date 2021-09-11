@@ -11,6 +11,7 @@ class TodayScreenController: UIViewController, UITableViewDataSource, UITableVie
     
 //    let model = Corporal_App.timeTables[0]
     let currentIndex = 0
+    private let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var clockLabel: UILabel!
     
@@ -32,10 +33,18 @@ class TodayScreenController: UIViewController, UITableViewDataSource, UITableVie
 
         // Do any additional setup after loading the view.
         clockLabel.text = timeTables[currentIndex].Caption
-        
+        if #available(iOS 10.0, *)  {
+            todayTable.refreshControl = refreshControl
+        }
+        refreshControl.addTarget(self, action: #selector(updateTable(_:)), for: .valueChanged)
+
+    }
+    @objc func updateTable(_ sender: Any) {
+        todayTable.reloadData()
+        print("Data should be reloaded")
+        refreshControl.endRefreshing()
     }
     
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Going to recalculate model")
         print("Items count = " + String(timeTables[currentIndex].TTItems.count))
