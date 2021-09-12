@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TimeTableEntity" representedClassName="TimeTableEntity" syncable="YES">
+        <attribute name="attribute" optional="YES" attributeType="Transformable" valueTransformerName="[TimeTableEvents]"/>
+        <attribute name="caption" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TimeTableEvent" representedClassName="TimeTableEvent" syncable="YES">
+        <attribute name="caption" optional="YES" attributeType="String"/>
+        <attribute name="startHour" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startMinute" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="TimeTableEvent" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="TimeTableEntity" positionX="-45" positionY="27" width="128" height="73"/>
+    </elements>
+</model>

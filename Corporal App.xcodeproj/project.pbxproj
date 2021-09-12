@@ -20,6 +20,11 @@
 		B2379A8626DD85DA00A65609 /* NewItemPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2379A8526DD85DA00A65609 /* NewItemPopupController.swift */; };
 		B26CEC3B26D226D000AED8F7 /* TimeTablesScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CEC3A26D226D000AED8F7 /* TimeTablesScreenController.swift */; };
 		B26CEC4326D2335F00AED8F7 /* EditTimeTableScreenControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CEC4226D2335F00AED8F7 /* EditTimeTableScreenControllerTableViewController.swift */; };
+		B2FAB47426EE8CED00228F7B /* corporal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2FAB47226EE8CED00228F7B /* corporal.xcdatamodeld */; };
+		B2FAB48426EEAB1D00228F7B /* TimeTableEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FAB48026EEAB1D00228F7B /* TimeTableEvent+CoreDataClass.swift */; };
+		B2FAB48526EEAB1D00228F7B /* TimeTableEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FAB48126EEAB1D00228F7B /* TimeTableEvent+CoreDataProperties.swift */; };
+		B2FAB48C26EEAB9D00228F7B /* TimeTableEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FAB48A26EEAB9D00228F7B /* TimeTableEntity+CoreDataClass.swift */; };
+		B2FAB48D26EEAB9D00228F7B /* TimeTableEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FAB48B26EEAB9D00228F7B /* TimeTableEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		B2379A8526DD85DA00A65609 /* NewItemPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemPopupController.swift; sourceTree = "<group>"; };
 		B26CEC3A26D226D000AED8F7 /* TimeTablesScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTablesScreenController.swift; sourceTree = "<group>"; };
 		B26CEC4226D2335F00AED8F7 /* EditTimeTableScreenControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTimeTableScreenControllerTableViewController.swift; sourceTree = "<group>"; };
+		B2FAB47326EE8CED00228F7B /* corporal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = corporal.xcdatamodel; sourceTree = "<group>"; };
+		B2FAB48026EEAB1D00228F7B /* TimeTableEvent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeTableEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2FAB48126EEAB1D00228F7B /* TimeTableEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeTableEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2FAB48A26EEAB9D00228F7B /* TimeTableEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeTableEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2FAB48B26EEAB9D00228F7B /* TimeTableEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeTableEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +80,9 @@
 		B207A24A26BDD698005A2B4E /* Corporal App */ = {
 			isa = PBXGroup;
 			children = (
+				B2FAB47C26EE948D00228F7B /* Model */,
 				B207A26026C8665F005A2B4E /* additional files */,
+				B207A25926BDD699005A2B4E /* Info.plist */,
 				B207A24F26BDD698005A2B4E /* ViewController.swift */,
 				B207A25126BDD698005A2B4E /* Main.storyboard */,
 				B2379A8526DD85DA00A65609 /* NewItemPopupController.swift */,
@@ -80,7 +92,7 @@
 				B207A27526CD78BD005A2B4E /* TodayScreenController.swift */,
 				B207A27826CD7971005A2B4E /* TodayTableView.swift */,
 				B207A26126C86690005A2B4E /* corporal.swift */,
-				B207A25926BDD699005A2B4E /* Info.plist */,
+				B2FAB47226EE8CED00228F7B /* corporal.xcdatamodeld */,
 			);
 			path = "Corporal App";
 			sourceTree = "<group>";
@@ -94,6 +106,17 @@
 				B207A25426BDD699005A2B4E /* Assets.xcassets */,
 			);
 			path = "additional files";
+			sourceTree = "<group>";
+		};
+		B2FAB47C26EE948D00228F7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B2FAB48A26EEAB9D00228F7B /* TimeTableEntity+CoreDataClass.swift */,
+				B2FAB48B26EEAB9D00228F7B /* TimeTableEntity+CoreDataProperties.swift */,
+				B2FAB48026EEAB1D00228F7B /* TimeTableEvent+CoreDataClass.swift */,
+				B2FAB48126EEAB1D00228F7B /* TimeTableEvent+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,13 +191,18 @@
 			files = (
 				B207A25026BDD698005A2B4E /* ViewController.swift in Sources */,
 				B207A24C26BDD698005A2B4E /* AppDelegate.swift in Sources */,
+				B2FAB48426EEAB1D00228F7B /* TimeTableEvent+CoreDataClass.swift in Sources */,
 				B26CEC3B26D226D000AED8F7 /* TimeTablesScreenController.swift in Sources */,
 				B26CEC4326D2335F00AED8F7 /* EditTimeTableScreenControllerTableViewController.swift in Sources */,
+				B2FAB48C26EEAB9D00228F7B /* TimeTableEntity+CoreDataClass.swift in Sources */,
+				B2FAB47426EE8CED00228F7B /* corporal.xcdatamodeld in Sources */,
 				B207A24E26BDD698005A2B4E /* SceneDelegate.swift in Sources */,
 				B207A27926CD7971005A2B4E /* TodayTableView.swift in Sources */,
 				B207A27326CA50C7005A2B4E /* TimeEventCustomCell.swift in Sources */,
 				B207A27626CD78BD005A2B4E /* TodayScreenController.swift in Sources */,
 				B2379A8626DD85DA00A65609 /* NewItemPopupController.swift in Sources */,
+				B2FAB48D26EEAB9D00228F7B /* TimeTableEntity+CoreDataProperties.swift in Sources */,
+				B2FAB48526EEAB1D00228F7B /* TimeTableEvent+CoreDataProperties.swift in Sources */,
 				B207A26226C86690005A2B4E /* corporal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +405,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B2FAB47226EE8CED00228F7B /* corporal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B2FAB47326EE8CED00228F7B /* corporal.xcdatamodel */,
+			);
+			currentVersion = B2FAB47326EE8CED00228F7B /* corporal.xcdatamodel */;
+			path = corporal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B207A24026BDD698005A2B4E /* Project object */;
 }
